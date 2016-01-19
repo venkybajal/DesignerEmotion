@@ -12,7 +12,7 @@ app = Flask(__name__)
 VLC_PATH = "vlc D:\\Designer\\vid\\test.avi --video-filter=scene --vout=dummy --start-time=3 --stop-time=15 --scene-ratio=10 --scene-path=D:\\Designer\\vid vlc://quit"
 
 
-url = 'https://api.projectoxford.ai/emotion/v1.0/recognize'
+url = 'https://api.projectoxford.ai/emotion/v1.0/recognize/'
 img = open('test.png','rb').read()
 
 
@@ -25,7 +25,7 @@ def hello():
 @app.route('/')    
 def mic_api():
 	#print img is None
-	r = requests.post(url, data=img, headers = headers)
+	r = requests.post(url, headers = headers, data = img)
 	return str(r.json())
 
 
